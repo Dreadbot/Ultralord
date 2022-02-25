@@ -53,9 +53,6 @@ public class SensitivityController implements Sendable {
     public double calculate(double input) {
         input = DreadbotMath.clampValue(input, -1.0d, 1.0d);
 
-        System.out.println("positiveMaximumValue = " + positiveMaximumValue);
-        System.out.println("negativeMaximumValue = " + negativeMaximumValue);
-
         if(input >= 0.0d) return positiveMaximumValue * Math.pow(input, positiveSensitivityExponent);
         return negativeMaximumValue * -Math.pow(-input, negativeSensitivityExponent);
     }
