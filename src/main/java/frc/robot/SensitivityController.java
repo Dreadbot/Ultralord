@@ -11,12 +11,19 @@ public class SensitivityController {
     private double positiveSensitivityExponent;
     private double negativeSensitivityExponent;
 
-    /**
-     * Default constructor with -40% sensitivity across the system.
-     */
-    public SensitivityController() {
-        this.positivePercentageSensitivity = -40.0d;
-        this.negativePercentageSensitivity = -40.0d;
+    private double positiveMinimumValue;
+    private double negativeMinimumValue;
+
+    private double positiveMaximumValue;
+    private double negativeMaximumValue;
+
+    private SensitivityController(Builder builder) {
+        this.positivePercentageSensitivity = builder.positivePercentageSensitivity;
+        this.negativePercentageSensitivity = builder.negativePercentageSensitivity;
+        this.positiveMinimumValue = builder.positiveMinimumValue;
+        this.negativeMinimumValue = builder.negativeMinimumValue;
+        this.positiveMaximumValue = builder.positiveMaximumValue;
+        this.negativeMaximumValue = builder.negativeMaximumValue;
 
         recalculateSensitivityExponents();
     }
@@ -43,8 +50,11 @@ public class SensitivityController {
     public double calculate(double input) {
         input = DreadbotMath.clampValue(input, -1.0d, 1.0d);
 
-        if(input >= 0.0d) return Math.pow(input, positiveSensitivityExponent);
-        return -Math.pow(-input, negativeSensitivityExponent);
+        System.out.println("positiveMaximumValue = " + positiveMaximumValue);
+        System.out.println("negativeMaximumValue = " + negativeMaximumValue);
+
+        if(input >= 0.0d) return positiveMaximumValue * Math.pow(input, positiveSensitivityExponent);
+        return negativeMaximumValue * -Math.pow(-input, negativeSensitivityExponent);
     }
 
     private void recalculateSensitivityExponents() {
@@ -64,11 +74,36 @@ public class SensitivityController {
         recalculateSensitivityExponents();
     }
 
-    public double getPositivePercentageSensitivity() {
-        return positivePercentageSensitivity;
-    }
+    public static class Builder {
+        private final double positivePercentageSensitivity;
+        private final double negativePercentageSensitivity;
 
-    public double getNegativePercentageSensitivity() {
-        return negativePercentageSensitivity;
+        private double positiveMinimumValue = 0.0d;
+        private double negativeMinimumValue = 0.0d;
+
+        private double positiveMaximumValue = 1.0d;
+        private double negativeMaximumValue = 1.0d;
+
+        public Builder(double positivePercentageSensitivity, double negativePercentageSensitivity) {
+            this.positivePercentageSensitivity = DreadbotMath.clampValue(positivePercentageSensitivity, -100.0d, 100.0d);
+            this.negativePercentageSensitivity = DreadbotMath.clampValue(negativePercentageSensitivity, -100.0d, 100.0d);
+        }
+
+        public Builder minimumValues(double positiveMinimumValue, double negativeMinimumValue) {
+            this.positiveMinimumValue = DreadbotMath.clampValue(positiveMinimumValue, 0.0d, 1.0d);
+            this.negativeMinimumValue = DreadbotMath.clampValue(negativeMinimumValue, 0.0d, 1.0d);
+            return this;
+        }
+
+        public Builder maximumValues(double positiveMaximumValue, double negativeMaximumValue) {
+            this.positiveMaximumValue = DreadbotMath.clampValue(positiveMaximumValue, 0.0d, 1.0d);
+            this.negativeMaximumValue = DreadbotMath.clampValue(negativeMaximumValue, 0.0d, 1.0d);
+            return this;
+        }
+
+        public SensitivityController build() {
+            SensitivityController sensitivityController = new SensitivityController(this);
+            return sensitivityController;
+        }
     }
 }
