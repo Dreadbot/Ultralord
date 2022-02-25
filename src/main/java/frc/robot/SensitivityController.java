@@ -1,10 +1,13 @@
 package frc.robot;
 
+import edu.wpi.first.util.sendable.Sendable;
+import edu.wpi.first.util.sendable.SendableBuilder;
+
 /**
  * A class that applies a given percentage sensitivity to an input for output.
  * Controls how sensitive the output is given the input.
  */
-public class SensitivityController {
+public class SensitivityController implements Sendable {
     private double positivePercentageSensitivity;
     private double negativePercentageSensitivity;
 
@@ -67,11 +70,20 @@ public class SensitivityController {
         negativeSensitivityExponent = 1.0d / negativeSensitivityExponent;
     }
 
-    public void setPercentageSensitivity(double positivePercentageSensitivity, double negativePercentageSensitivity) {
-        this.positivePercentageSensitivity = DreadbotMath.clampValue(positivePercentageSensitivity, -100.0d, 100.0d);
-        this.negativePercentageSensitivity = DreadbotMath.clampValue(negativePercentageSensitivity, -100.0d, 100.0d);
-
-        recalculateSensitivityExponents();
+    /**
+     * Initializes this {@link Sendable} object.
+     *
+     * @param builder sendable builder
+     */
+    @Override
+    public void initSendable(SendableBuilder builder) {
+        builder.setSmartDashboardType("SensitivityController");
+        builder.addDoubleProperty("positivePercentageSensitivity", this::getPositivePercentageSensitivity, this::setPositivePercentageSensitivity);
+        builder.addDoubleProperty("negativePercentageSensitivity", this::getNegativePercentageSensitivity, this::setNegativePercentageSensitivity);
+        builder.addDoubleProperty("positiveMinimumValue", this::getPositiveMinimumValue, this::setPositiveMinimumValue);
+        builder.addDoubleProperty("negativeMinimumValue", this::getNegativeMinimumValue, this::setNegativeMinimumValue);
+        builder.addDoubleProperty("positiveMaximumValue", this::getPositiveMaximumValue, this::setPositiveMaximumValue);
+        builder.addDoubleProperty("negativeMaximumValue", this::getNegativeMaximumValue, this::setNegativeMaximumValue);
     }
 
     public static class Builder {
@@ -105,5 +117,53 @@ public class SensitivityController {
             SensitivityController sensitivityController = new SensitivityController(this);
             return sensitivityController;
         }
+    }
+
+    public double getPositivePercentageSensitivity() {
+        return positivePercentageSensitivity;
+    }
+
+    public void setPositivePercentageSensitivity(double positivePercentageSensitivity) {
+        this.positivePercentageSensitivity = positivePercentageSensitivity;
+    }
+
+    public double getNegativePercentageSensitivity() {
+        return negativePercentageSensitivity;
+    }
+
+    public void setNegativePercentageSensitivity(double negativePercentageSensitivity) {
+        this.negativePercentageSensitivity = negativePercentageSensitivity;
+    }
+
+    public double getPositiveMinimumValue() {
+        return positiveMinimumValue;
+    }
+
+    public void setPositiveMinimumValue(double positiveMinimumValue) {
+        this.positiveMinimumValue = positiveMinimumValue;
+    }
+
+    public double getNegativeMinimumValue() {
+        return negativeMinimumValue;
+    }
+
+    public void setNegativeMinimumValue(double negativeMinimumValue) {
+        this.negativeMinimumValue = negativeMinimumValue;
+    }
+
+    public double getPositiveMaximumValue() {
+        return positiveMaximumValue;
+    }
+
+    public void setPositiveMaximumValue(double positiveMaximumValue) {
+        this.positiveMaximumValue = positiveMaximumValue;
+    }
+
+    public double getNegativeMaximumValue() {
+        return negativeMaximumValue;
+    }
+
+    public void setNegativeMaximumValue(double negativeMaximumValue) {
+        this.negativeMaximumValue = negativeMaximumValue;
     }
 }
