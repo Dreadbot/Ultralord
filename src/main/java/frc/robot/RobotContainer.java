@@ -47,6 +47,10 @@ public class RobotContainer {
     rotationalBuilder.maximumValues(0.5d, 0.5d);
     SensitivityController rotationalSensitivityController = rotationalBuilder.build();
 
+    SmartDashboard.putData("forwardSensitivityController", forwardSensitivityController);
+    SmartDashboard.putData("lateralSensitivityController", lateralSensitivityController);
+    SmartDashboard.putData("rotationalSensitivityController", rotationalSensitivityController);
+
     SlewRateLimiter slewFilter = new SlewRateLimiter(3); // 3 units per second
 
     drive.setDefaultCommand(new RunCommand(() -> {
