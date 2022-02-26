@@ -4,6 +4,8 @@
 
 package frc.robot;
 
+import edu.wpi.first.cameraserver.CameraServer;
+import edu.wpi.first.math.MathUtil;
 import edu.wpi.first.math.filter.SlewRateLimiter;
 import edu.wpi.first.wpilibj.GenericHID;
 import edu.wpi.first.wpilibj.Joystick;
@@ -28,6 +30,8 @@ public class RobotContainer {
   public RobotContainer() {
     // Configure the button bindings
     configureButtonBindings();
+
+    CameraServer.startAutomaticCapture();
   }
 
   /**
@@ -57,6 +61,10 @@ public class RobotContainer {
       double forward = joystick.getRawAxis(1);
       double lateral = joystick.getRawAxis(0);
       double rotational = joystick.getRawAxis(2);
+
+      forward = MathUtil.applyDeadband(forward, 0.05);
+      lateral = MathUtil.applyDeadband(lateral, 0.05);
+      rotational = MathUtil.applyDeadband(rotational, 0.05);
 
       forward = forwardSensitivityController.calculate(forward);
       forward = slewFilter.calculate(forward);
