@@ -45,7 +45,7 @@ public class SensitivityController implements Sendable {
     }
 
     /**
-     * Filters the input to apply a sensitivity to the output.
+     * Filters the input by applying a sensitivity to the output.
      *
      * @param input The joystick input
      * @return The filtered output
@@ -58,12 +58,16 @@ public class SensitivityController implements Sendable {
     }
 
     private void recalculateSensitivityExponents() {
+        // Convert from percentage to proportion
         positiveSensitivityExponent = positivePercentageSensitivity / 100.0d;
-        positiveSensitivityExponent = Math.pow(10.0d, positiveSensitivityExponent);
-        positiveSensitivityExponent = 1.0d / positiveSensitivityExponent;
-
         negativeSensitivityExponent = negativePercentageSensitivity / 100.0d;
+
+        // Compute denominator of exponential relationship
+        positiveSensitivityExponent = Math.pow(10.0d, positiveSensitivityExponent);
         negativeSensitivityExponent = Math.pow(10.0d, negativeSensitivityExponent);
+
+        // Compute final exponent value
+        positiveSensitivityExponent = 1.0d / positiveSensitivityExponent;
         negativeSensitivityExponent = 1.0d / negativeSensitivityExponent;
     }
 
