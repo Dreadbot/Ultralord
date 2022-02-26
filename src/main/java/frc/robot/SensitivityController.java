@@ -121,7 +121,10 @@ public class SensitivityController implements Sendable {
     }
 
     public void setPositivePercentageSensitivity(double positivePercentageSensitivity) {
+        if(positivePercentageSensitivity == this.positivePercentageSensitivity) return;
+
         this.positivePercentageSensitivity = positivePercentageSensitivity;
+        recalculateSensitivityExponents();
     }
 
     public double getNegativePercentageSensitivity() {
@@ -129,7 +132,10 @@ public class SensitivityController implements Sendable {
     }
 
     public void setNegativePercentageSensitivity(double negativePercentageSensitivity) {
+        if(negativePercentageSensitivity == this.negativePercentageSensitivity) return;
+
         this.negativePercentageSensitivity = negativePercentageSensitivity;
+        recalculateSensitivityExponents();
     }
 
     public double getPositiveMinimumValue() {

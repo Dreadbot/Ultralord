@@ -1,0 +1,278 @@
+{
+  "tabPane": [
+    {
+      "title": "SmartDashboard",
+      "autoPopulate": true,
+      "autoPopulatePrefix": "SmartDashboard/",
+      "widgetPane": {
+        "gridSize": 128.0,
+        "showGrid": true,
+        "hgap": 16.0,
+        "vgap": 16.0,
+        "titleType": 0,
+        "tiles": {
+          "0,0": {
+            "size": [
+              1,
+              1
+            ],
+            "content": {
+              "_type": "Text View",
+              "_source0": "network_table:///SmartDashboard/forwardSensitivityController/positivePercentageSensitivity",
+              "_title": "forwardSensitivityController/positivePercentageSensitivity"
+            }
+          },
+          "1,0": {
+            "size": [
+              1,
+              1
+            ],
+            "content": {
+              "_type": "Text View",
+              "_source0": "network_table:///SmartDashboard/forwardSensitivityController/negativePercentageSensitivity",
+              "_title": "forwardSensitivityController/negativePercentageSensitivity"
+            }
+          },
+          "2,0": {
+            "size": [
+              1,
+              1
+            ],
+            "content": {
+              "_type": "Text View",
+              "_source0": "network_table:///SmartDashboard/forwardSensitivityController/positiveMinimumValue",
+              "_title": "forwardSensitivityController/positiveMinimumValue"
+            }
+          },
+          "3,0": {
+            "size": [
+              1,
+              1
+            ],
+            "content": {
+              "_type": "Text View",
+              "_source0": "network_table:///SmartDashboard/forwardSensitivityController/negativeMinimumValue",
+              "_title": "forwardSensitivityController/negativeMinimumValue"
+            }
+          },
+          "4,0": {
+            "size": [
+              1,
+              1
+            ],
+            "content": {
+              "_type": "Text View",
+              "_source0": "network_table:///SmartDashboard/forwardSensitivityController/positiveMaximumValue",
+              "_title": "forwardSensitivityController/positiveMaximumValue"
+            }
+          },
+          "5,0": {
+            "size": [
+              1,
+              1
+            ],
+            "content": {
+              "_type": "Text View",
+              "_source0": "network_table:///SmartDashboard/forwardSensitivityController/negativeMaximumValue",
+              "_title": "forwardSensitivityController/negativeMaximumValue"
+            }
+          },
+          "7,0": {
+            "size": [
+              1,
+              1
+            ],
+            "content": {
+              "_type": "Text View",
+              "_source0": "network_table:///SmartDashboard/lateralSensitivityController/positivePercentageSensitivity",
+              "_title": "lateralSensitivityController/positivePercentageSensitivity"
+            }
+          },
+          "8,0": {
+            "size": [
+              1,
+              1
+            ],
+            "content": {
+              "_type": "Text View",
+              "_source0": "network_table:///SmartDashboard/lateralSensitivityController/negativePercentageSensitivity",
+              "_title": "lateralSensitivityController/negativePercentageSensitivity"
+            }
+          },
+          "9,0": {
+            "size": [
+              1,
+              1
+            ],
+            "content": {
+              "_type": "Text View",
+              "_source0": "network_table:///SmartDashboard/lateralSensitivityController/positiveMinimumValue",
+              "_title": "lateralSensitivityController/positiveMinimumValue"
+            }
+          },
+          "10,0": {
+            "size": [
+              1,
+              1
+            ],
+            "content": {
+              "_type": "Text View",
+              "_source0": "network_table:///SmartDashboard/lateralSensitivityController/negativeMinimumValue",
+              "_title": "lateralSensitivityController/negativeMinimumValue"
+            }
+          },
+          "11,0": {
+            "size": [
+              1,
+              1
+            ],
+            "content": {
+              "_type": "Text View",
+              "_source0": "network_table:///SmartDashboard/lateralSensitivityController/positiveMaximumValue",
+              "_title": "lateralSensitivityController/positiveMaximumValue"
+            }
+          },
+          "12,0": {
+            "size": [
+              1,
+              1
+            ],
+            "content": {
+              "_type": "Text View",
+              "_source0": "network_table:///SmartDashboard/lateralSensitivityController/negativeMaximumValue",
+              "_title": "lateralSensitivityController/negativeMaximumValue"
+            }
+          },
+          "0,2": {
+            "size": [
+              1,
+              1
+            ],
+            "content": {
+              "_type": "Text View",
+              "_source0": "network_table:///SmartDashboard/rotationalSensitivityController/positivePercentageSensitivity",
+              "_title": "rotationalSensitivityController/positivePercentageSensitivity"
+            }
+          },
+          "1,2": {
+            "size": [
+              1,
+              1
+            ],
+            "content": {
+              "_type": "Text View",
+              "_source0": "network_table:///SmartDashboard/rotationalSensitivityController/negativePercentageSensitivity",
+              "_title": "rotationalSensitivityController/negativePercentageSensitivity"
+            }
+          },
+          "2,2": {
+            "size": [
+              1,
+              1
+            ],
+            "content": {
+              "_type": "Text View",
+              "_source0": "network_table:///SmartDashboard/rotationalSensitivityController/positiveMinimumValue",
+              "_title": "rotationalSensitivityController/positiveMinimumValue"
+            }
+          },
+          "3,2": {
+            "size": [
+              1,
+              1
+            ],
+            "content": {
+              "_type": "Text View",
+              "_source0": "network_table:///SmartDashboard/rotationalSensitivityController/negativeMinimumValue",
+              "_title": "rotationalSensitivityController/negativeMinimumValue"
+            }
+          },
+          "4,2": {
+            "size": [
+              1,
+              1
+            ],
+            "content": {
+              "_type": "Text View",
+              "_source0": "network_table:///SmartDashboard/rotationalSensitivityController/positiveMaximumValue",
+              "_title": "rotationalSensitivityController/positiveMaximumValue"
+            }
+          },
+          "5,2": {
+            "size": [
+              1,
+              1
+            ],
+            "content": {
+              "_type": "Text View",
+              "_source0": "network_table:///SmartDashboard/rotationalSensitivityController/negativeMaximumValue",
+              "_title": "rotationalSensitivityController/negativeMaximumValue"
+            }
+          }
+        }
+      }
+    },
+    {
+      "title": "LiveWindow",
+      "autoPopulate": true,
+      "autoPopulatePrefix": "LiveWindow/",
+      "widgetPane": {
+        "gridSize": 128.0,
+        "showGrid": true,
+        "hgap": 16.0,
+        "vgap": 16.0,
+        "titleType": 0,
+        "tiles": {
+          "0,0": {
+            "size": [
+              2,
+              4
+            ],
+            "content": {
+              "_type": "Subsystem Layout",
+              "_source0": "network_table:///LiveWindow/Ungrouped",
+              "_title": "Ungrouped",
+              "Layout/Label position": "BOTTOM",
+              "_children": [
+                {
+                  "_type": "Mecanum Drivebase",
+                  "_source0": "network_table:///LiveWindow/Ungrouped/MecanumDrive[1]",
+                  "_title": "MecanumDrive[1]",
+                  "Visuals/Show velocity vectors": true
+                },
+                {
+                  "_type": "Gyro",
+                  "_source0": "network_table:///LiveWindow/Ungrouped/navX-Sensor[1]",
+                  "_title": "navX-Sensor[1]",
+                  "Visuals/Major tick spacing": 45.0,
+                  "Visuals/Starting angle": 180.0,
+                  "Visuals/Show tick mark ring": true,
+                  "Visuals/Counter clockwise": false
+                }
+              ]
+            }
+          },
+          "2,0": {
+            "size": [
+              2,
+              4
+            ],
+            "content": {
+              "_type": "Subsystem Layout",
+              "_source0": "network_table:///LiveWindow/Drive",
+              "_title": "Drive",
+              "Layout/Label position": "BOTTOM",
+              "_children": []
+            }
+          }
+        }
+      }
+    }
+  ],
+  "windowGeometry": {
+    "x": -8.0,
+    "y": -8.0,
+    "width": 1936.0,
+    "height": 1056.0
+  }
+}
