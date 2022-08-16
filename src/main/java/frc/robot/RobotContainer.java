@@ -59,8 +59,12 @@ public class RobotContainer {
 
     drive.setDefaultCommand(new RunCommand(() -> {
       double forward = joystick.getRawAxis(1);
+      forward *= .75;
       double lateral = joystick.getRawAxis(0);
+      lateral *= .75;
       double rotational = joystick.getRawAxis(2);
+      rotational *= .75;
+
 
       forward = MathUtil.applyDeadband(forward, 0.05);
       lateral = MathUtil.applyDeadband(lateral, 0.05);
