@@ -59,12 +59,8 @@ public class RobotContainer {
 
     drive.setDefaultCommand(new RunCommand(() -> {
       double forward = joystick.getRawAxis(1);
-      forward *= .75;
       double lateral = joystick.getRawAxis(0);
-      lateral *= .75;
       double rotational = joystick.getRawAxis(2);
-      rotational *= .75;
-
 
       forward = MathUtil.applyDeadband(forward, 0.05);
       lateral = MathUtil.applyDeadband(lateral, 0.05);
@@ -74,6 +70,15 @@ public class RobotContainer {
       forward = slewFilter.calculate(forward);
       lateral = lateralSensitivityController.calculate(lateral);
       rotational = rotationalSensitivityController.calculate(rotational);
+
+      if (!joystick.getRawButton(5)){
+        forward *= .75;
+        lateral *= .75;
+      }
+
+      if (!joystick.getRawButton(6)){
+        rotational *= .75;
+      }
 
       drive.drive(forward, lateral, rotational);
     }, drive));
